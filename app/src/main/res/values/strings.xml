@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Bring To Me</string>
+    <string name="txtLogin">Login</string>
+    <string name="hint_login">Informe o login</string>
+    <string name="txtSenha">Password</string>
+    <string name="hint_senha">Informe sua senha</string>
+    <string name="botao_login">Conectar</string>
+    <string name="botao_cadastrar">Create a New Account</string>
+    <string name="botao_cadastrar_locker">Subscribe New Locker</string>
+</resources>
