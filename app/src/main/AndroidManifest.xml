@@ -16,8 +16,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".CadastroUsuarioActivity"></activity>
-        <activity android:name=".CadastroLockerActivity"></activity>
+        <activity android:name=".CadastroUsuarioActivity" />
+        <activity android:name=".CadastroAssinaturaActivity" />
+        <activity android:name=".MainViewModelActivity"></activity>
     </application>
 
 </manifest>

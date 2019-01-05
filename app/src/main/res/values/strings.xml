@@ -1,10 +1,17 @@
 <resources>
     <string name="app_name">Bring To Me</string>
-    <string name="txtLogin">Login</string>
-    <string name="hint_login">Informe o login</string>
+    <string name="btnLogin">Login</string>
+    <string name="txtUser">Username</string>
+    <string name="hint_user">Email</string>
     <string name="txtSenha">Password</string>
-    <string name="hint_senha">Informe sua senha</string>
-    <string name="botao_login">Conectar</string>
+    <string name="hint_senha">Inform your password</string>
+    <string name="botao_login">Login</string>
     <string name="botao_cadastrar">Create a New Account</string>
-    <string name="botao_cadastrar_locker">Subscribe New Locker</string>
+    <string name="hint_site">Site</string>
+    <string name="txtDataSign">Signature date</string>
+    <string name="txtDataExp">Expiration date</string>
+    <string name="hint_data_sign">Informe a data da assinatura</string>
+    <string name="ckb_conectado">Keep conected</string>
+    <string name="txtSubscUser">Still doesent have an account? Create now!</string>
+    <string name="bt_salvar_assinatura">Save</string>
 </resources>

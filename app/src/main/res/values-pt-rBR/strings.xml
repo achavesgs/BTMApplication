@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Bring To Me</string>
+    <string name="btnLogin">Entrar</string>
+    <string name="txtUser">Usuário</string>
+    <string name="hint_user">Email</string>
+    <string name="txtSenha">Senha</string>
+    <string name="hint_senha">Informe sua senha</string>
+    <string name="botao_login">Conectar</string>
+    <string name="botao_cadastrar">Criar uma nova conta</string>
+    <string name="hint_site">Site</string>
+    <string name="txtDataSign">Data da assinatura</string>
+    <string name="txtDataExp">Data de Expiração</string>
+    <string name="hint_data_sign">Informe a data da assinatura</string>
+    <string name="ckb_conectado">Manter Conectado</string>
+    <string name="txtSubscUser">Ainda não tem uma conta? Crie agora!</string>
+    <string name="bt_salvar_assinatura">Salvar</string>
+</resources>

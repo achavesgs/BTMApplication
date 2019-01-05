@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CadastroAssinaturaActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".CadastroAssinaturaActivity">
+
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <TextView
+                android:id="@+id/idSite"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="15dip"
+                android:typeface="normal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/hint_site"
+                android:textColor="@color/colorText"/>
+
+
+            <EditText
+                    android:id="@+id/etSite"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:hint="@string/hint_site"
+                    android:inputType="text"
+                    android:textColor="@color/colorSecondaryText"/>
+
+            <TextView
+                android:id="@+id/idDataSign"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="15dip"
+                android:typeface="normal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/txtDataSign"
+                android:textColor="@color/colorText"/>
+
+            <EditText
+                android:id="@+id/etDataSign"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="hint_data_sign"
+                android:inputType="date"
+                android:textColor="@color/colorSecondaryText"/>
+
+            <TextView
+                android:id="@+id/idDataExp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="15dip"
+                android:typeface="normal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/txtDataExp"
+                android:textColor="@color/colorText"/>
+
+            <EditText
+                android:id="@+id/etDataExp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="hint_data"
+                android:inputType="date"
+                android:textColor="@color/colorSecondaryText"/>
+        </RadioGroup>
+
+
+        <Button
+            android:id="@+id/btSubscribeLocker"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:background="@color/colorAccent"
+            android:text="@string/bt_salvar_assinatura"
+            android:textColor="@color/colorDiver" />
+
+    </LinearLayout>
+</ScrollView>
