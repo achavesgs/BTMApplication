@@ -53,11 +53,9 @@
                 android:id="@+id/etDataSign"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:ems="10"
-                android:hint="hint_data_sign"
-                android:inputType="date"
-                android:textColor="@color/colorSecondaryText"/>
+                android:hint="@string/hint_data"
+                android:inputType="date" />
 
             <TextView
                 android:id="@+id/idDataExp"
@@ -73,22 +71,22 @@
                 android:id="@+id/etDataExp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:ems="10"
-                android:hint="hint_data"
-                android:inputType="date"
-                android:textColor="@color/colorSecondaryText"/>
+                android:hint="@string/hint_data"
+                android:inputType="date" />
+
         </RadioGroup>
 
 
         <Button
-            android:id="@+id/btSubscribeLocker"
+            android:id="@+id/btSaveSite"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
             android:background="@color/colorAccent"
             android:text="@string/bt_salvar_assinatura"
             android:textColor="@color/colorDiver" />
+
 
     </LinearLayout>
 </ScrollView>

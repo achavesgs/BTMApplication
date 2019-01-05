@@ -11,8 +11,13 @@
     <string name="hint_site">Site</string>
     <string name="txtDataSign">Data da assinatura</string>
     <string name="txtDataExp">Data de Expiração</string>
-    <string name="hint_data_sign">Informe a data da assinatura</string>
+    <string name="hint_data">DD/MM/AAAA</string>
     <string name="ckb_conectado">Manter Conectado</string>
     <string name="txtSubscUser">Ainda não tem uma conta? Crie agora!</string>
     <string name="bt_salvar_assinatura">Salvar</string>
+    <string name="txtDocumento">Número do documento</string>
+    <string name="hint_documento">CPF/CNPJ</string>
+    <string name="txtPhone">Telefone</string>
+    <string name="hint_phone">(00) 00000-0000</string>
+    <string name="txtFullName">Nome Completo</string>
 </resources>

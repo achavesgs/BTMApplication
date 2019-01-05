@@ -16,13 +16,34 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
+
+            <TextView
+                android:id="@+id/txtUserName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:text="@string/txtUser"
+                android:textColor="@color/colorText"
+                android:inputType="textPersonName" />
+
             <EditText
                 android:id="@+id/etUserName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
-                android:hint="User Name"
+                android:hint="@string/hint_user"
+                android:inputType="textPersonName" />
+
+            <TextView
+                android:id="@+id/txtPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:text="@string/txtSenha"
+                android:textColor="@color/colorText"
                 android:inputType="textPersonName" />
 
             <EditText
@@ -31,8 +52,18 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
-                android:hint="Password"
+                android:hint="@string/txtSenha"
                 android:inputType="textPassword" />
+
+            <TextView
+                android:id="@+id/txtFullName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:text="@string/txtFullName"
+                android:textColor="@color/colorText"
+                android:inputType="textPersonName" />
 
             <EditText
                 android:id="@+id/etPersonName"
@@ -40,7 +71,16 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
-                android:hint="Full Name"
+                android:inputType="textPersonName" />
+
+            <TextView
+                android:id="@+id/txtPhone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:text="@string/txtPhone"
+                android:textColor="@color/colorText"
                 android:inputType="textPersonName" />
 
             <EditText
@@ -49,8 +89,18 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
-                android:hint="Phone Number"
+                android:hint="@string/hint_phone"
                 android:inputType="number" />
+
+            <TextView
+                android:id="@+id/txtDocument"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:text="@string/txtDocumento"
+                android:textColor="@color/colorText"
+                android:inputType="textPersonName" />
 
             <EditText
                 android:id="@+id/etDocument"
@@ -58,7 +108,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
-                android:hint="Document"
+                android:hint="@string/hint_documento"
                 android:inputType="textPersonName" />
 
         </RadioGroup>
@@ -71,7 +121,8 @@
             android:layout_marginBottom="16dp"
             android:background="@color/colorAccent"
             android:text="@string/botao_cadastrar"
-            android:textColor="@color/colorDiver" />
+            android:textColor="@color/colorDiver"
+            />
 
     </LinearLayout>
 </ScrollView>
