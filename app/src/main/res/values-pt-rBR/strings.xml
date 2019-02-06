@@ -20,4 +20,9 @@
     <string name="txtPhone">Telefone</string>
     <string name="hint_phone">(00) 00000-0000</string>
     <string name="txtFullName">Nome Completo</string>
+    <string name="genericError">Ocorreu um problema inesperado. Por favor, tente novamente mais tarde.</string>
+    <string name="loginError">Por favor, verifique usuário e senha e tente novamente.</string>
+    <string name="signupError">Por favor, verifique os dados e tente novamente.</string>
+    <string name="emailNotVerifiedError">Por favor, confirme seu email.</string>
+
 </resources>

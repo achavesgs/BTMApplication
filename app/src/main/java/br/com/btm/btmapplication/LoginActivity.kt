@@ -1,14 +1,10 @@
 package br.com.btm.btmapplication
 
-import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
-import br.com.btm.btmapplication.extensions.value
-import br.com.btm.btmapplication.CadastroUsuarioActivity
-import kotlinx.android.synthetic.main.activity_cadastro_usuario.*
 import kotlinx.android.synthetic.main.activity_login.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -25,19 +21,11 @@ class LoginActivity : AppCompatActivity() {
         val sharedPreferences = getSharedPreferences("meuapp",
                 Context.MODE_PRIVATE)
 
-        if(sharedPreferences.getBoolean("MANTER_CONECTADO", false)){
-            proximaTela()
-        }
         btSubscribe.setOnClickListener{
-            startActivity(Intent(this, CadastroUsuarioActivity::class.java))
+            goToCadastro()
         }
 
         btLogar.setOnClickListener {
-            val editor = sharedPreferences.edit()
-            editor.putBoolean("MANTER_CONECTADO", cbManterConectado.isChecked)
-            editor.putString("USUARIO", inputNome.text.toString())
-            editor.putString("PASSWORD", inputPassword.text.toString())
-
             val retrofit = Retrofit.Builder()
                     .baseUrl("https://signatures-api.herokuapp.com")
                     .addConverterFactory(GsonConverterFactory.create())
@@ -46,25 +34,55 @@ class LoginActivity : AppCompatActivity() {
             val service = retrofit.create(SignaturesApiInterface::class.java)
 
             service.signIn(inputNome.text.toString(), inputPassword.text.toString())
-                    .enqueue(object : Callback<Usuario> {
-                        override fun onFailure(call: Call<Usuario>, t: Throwable) {
-                            Toast.makeText(this@LoginActivity, "Deu Ruim", Toast.LENGTH_SHORT).show()
-                        }
+                .enqueue(object : Callback<UsuarioResponse> {
+                    override fun onFailure(call: Call<UsuarioResponse>?, t: Throwable) {
+                        Toast.makeText(
+                                this@LoginActivity,
+                                R.string.genericError,
+                                Toast.LENGTH_SHORT
+                        ).show()
+                    }
 
-                        override fun onResponse(call: Call<Usuario>, response: Response<Usuario>) {
-                            Toast.makeText(this@LoginActivity, response.message(), Toast.LENGTH_SHORT).show()
-                            proximaTela()
-                        }
-                    })
-            editor.apply()
+                    override fun onResponse(call: Call<UsuarioResponse>?, response: Response<UsuarioResponse>?) {
+                        if (response?.code() in 200..299) {
+                            val usuarioResponse = response?.body()
+//                            if (usuario!!.emailVerified) {
+                              goToMain(usuarioResponse!!.usuario.userId)
 
+                                if (cbManterConectado.isChecked) {
+                                    val editor = sharedPreferences.edit()
+                                    editor.putBoolean("MANTER_CONECTADO", cbManterConectado.isChecked)
+                                    editor.putString("USUARIO", inputNome.text.toString())
+                                    editor.putString("PASSWORD", inputPassword.text.toString())
+                                    editor.apply()
+                                }
+//                            } else {
+//                                Toast.makeText(
+//                                        this@LoginActivity,
+//                                        R.string.emailNotVerifiedError,
+//                                        Toast.LENGTH_SHORT
+//                                ).show()
+//                            }
+                        } else {
+                            Toast.makeText(
+                                    this@LoginActivity,
+                                    R.string.loginError,
+                                    Toast.LENGTH_SHORT
+                            ).show()
+                        }
+                    }
+                })
         }
     }
 
-    private fun proximaTela() {
+    private fun goToCadastro() {
         val intent = Intent(this, CadastroAssinaturaActivity::class.java)
-//         intent.putExtra("nome", inputNome.value())
-//        intent.putExtra("senha", inputPassword.value())
+        startActivity(intent)
+    }
+
+    private fun goToMain(usuario: String) {
+        val intent = Intent(this, MainActivity::class.java)
+        intent.putExtra("usuario", usuario)
         startActivity(intent)
     }
 }

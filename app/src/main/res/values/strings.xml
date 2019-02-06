@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Bring To Me</string>
     <string name="btnLogin">Login</string>
-    <string name="txtUser">Username</string>
+    <string name="txtUser">Email</string>
     <string name="hint_user">Email</string>
     <string name="txtSenha">Password</string>
     <string name="hint_senha">Inform your password</string>
@@ -19,4 +19,8 @@
     <string name="txtPhone">Phone Number</string>
     <string name="hint_phone">(00) 00000-0000</string>
     <string name="txtFullName">Full Name</string>
+    <string name="genericError">Unexpected error. Please, try again later.</string>
+    <string name="loginError">Please, confirm your login details and try again.</string>
+    <string name="signupError">Please, verify your input information and try again.</string>
+    <string name="emailNotVerifiedError">Please verify your email address.</string>
 </resources>

@@ -8,8 +8,11 @@ import retrofit2.http.Query
 
 interface SignaturesApiInterface {
     @POST("/api/signin")
-    fun signIn(@Query("username") username: String, @Query("password") password: String): Call<Usuario>
+    fun signIn(@Query("username") username: String, @Query("password") password: String): Call<UsuarioResponse>
 
     @POST("/api/signup")
-    fun signUp(@Query("username") username: String, @Query("password") password: String): Call<Usuario>
+    fun signUp(@Query("username") username: String, @Query("password") password: String): Call<UsuarioResponse>
+
+    @GET("/api/my-signatures/{userId}")
+    fun mySignatures(@Path("userId") userId: String): Call<List<Signature>>
 }
