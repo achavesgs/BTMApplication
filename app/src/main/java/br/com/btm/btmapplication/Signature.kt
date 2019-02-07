@@ -4,7 +4,7 @@ import com.google.gson.annotations.SerializedName
 import java.util.*
 
 data class Signature(
-        @SerializedName("data") val data: Date,
+        @SerializedName("data") val data: String,
         @SerializedName("servico") val servico: String,
-        @SerializedName("tempo") val tempo: Boolean
+        @SerializedName("tempo") val tempo: String
 )

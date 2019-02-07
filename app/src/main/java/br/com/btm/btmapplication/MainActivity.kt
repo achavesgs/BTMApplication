@@ -1,52 +1,36 @@
 package br.com.btm.btmapplication
-import android.support.v7.app.AppCompatActivity
+import android.arch.lifecycle.Observer
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
+import kotlinx.android.synthetic.main.activity_main_view_model.*
+import br.com.btm.btmapplication.SignatureAdapter
+import android.arch.lifecycle.ViewModelProviders
 import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
-import android.widget.Toast
-import kotlinx.android.synthetic.main.activity_login.*
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
+import br.com.btm.btmapplication.Signature
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var recyclerView: RecyclerView
-    private lateinit var viewAdapter: RecyclerView.Adapter<*>
-    private lateinit var viewManager: RecyclerView.LayoutManager
+    private var adapter: SignatureAdapter? = null
+    private var signatures: List<Signature> = listOf()
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        val usuario = intent.getStringExtra("usuario")
-
-        val retrofit = Retrofit.Builder()
-                .baseUrl("https://signatures-api.herokuapp.com")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build()
-
-        val service = retrofit.create(SignaturesApiInterface::class.java)
-
-        service.mySignatures(usuario)
-                .enqueue(object : Callback<List<Signature>> {
-                    override fun onFailure(call: Call<List<Signature>>, t: Throwable) {
-                        Toast.makeText(
-                                this@MainActivity,
-                                R.string.genericError,
-                                Toast.LENGTH_SHORT
-                        ).show()
-                    }
-
-                    override fun onResponse(call: Call<List<Signature>>, response: Response<List<Signature>>) {
-                        Toast.makeText(
-                                this@MainActivity,
-                                "FOOOOOOI",
-                                Toast.LENGTH_SHORT
-                        ).show()
-                    }
-                })
-
+        setContentView(R.layout.activity_main_view_model)
+        mostrarDados()
+        rvSignatures.layoutManager = LinearLayoutManager(this)
+        adapter = SignatureAdapter(signatures!!)
+        rvSignatures.adapter = adapter
     }
 
+    private fun mostrarDados() {
+        val usuario = intent.getStringExtra("usuario")
+
+        var model = ViewModelProviders.of(this)
+            .get(SignatureListViewModel::class.java)
+            .getSignatures(usuario)
+            .observe(this, Observer<List<Signature>> { signatures ->
+            adapter?.setList(signatures!!)
+            rvSignatures.adapter.notifyDataSetChanged()
+        })
+    }
 }

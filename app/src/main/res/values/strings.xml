@@ -23,4 +23,5 @@
     <string name="loginError">Please, confirm your login details and try again.</string>
     <string name="signupError">Please, verify your input information and try again.</string>
     <string name="emailNotVerifiedError">Please verify your email address.</string>
+    <string name="appbar_scrolling_view_behavior">AppBarLayout.ScrollingViewBehavior</string>
 </resources>

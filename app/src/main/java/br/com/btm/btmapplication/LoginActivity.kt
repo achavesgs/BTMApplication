@@ -34,8 +34,8 @@ class LoginActivity : AppCompatActivity() {
             val service = retrofit.create(SignaturesApiInterface::class.java)
 
             service.signIn(inputNome.text.toString(), inputPassword.text.toString())
-                .enqueue(object : Callback<UsuarioResponse> {
-                    override fun onFailure(call: Call<UsuarioResponse>?, t: Throwable) {
+                .enqueue(object : Callback<Usuario> {
+                    override fun onFailure(call: Call<Usuario>?, t: Throwable) {
                         Toast.makeText(
                                 this@LoginActivity,
                                 R.string.genericError,
@@ -43,11 +43,11 @@ class LoginActivity : AppCompatActivity() {
                         ).show()
                     }
 
-                    override fun onResponse(call: Call<UsuarioResponse>?, response: Response<UsuarioResponse>?) {
+                    override fun onResponse(call: Call<Usuario>?, response: Response<Usuario>?) {
                         if (response?.code() in 200..299) {
-                            val usuarioResponse = response?.body()
+                            val usuario = response?.body()
 //                            if (usuario!!.emailVerified) {
-                              goToMain(usuarioResponse!!.usuario.userId)
+                              goToMain(usuario!!.userId)
 
                                 if (cbManterConectado.isChecked) {
                                     val editor = sharedPreferences.edit()
@@ -76,7 +76,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun goToCadastro() {
-        val intent = Intent(this, CadastroAssinaturaActivity::class.java)
+        val intent = Intent(this, CadastroUsuarioActivity::class.java)
         startActivity(intent)
     }
 

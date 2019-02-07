@@ -26,8 +26,8 @@ class CadastroUsuarioActivity : AppCompatActivity() {
             val service = retrofit.create(SignaturesApiInterface::class.java)
 
             service.signUp(etUserName.text.toString(), etPassword.text.toString())
-                .enqueue(object : Callback<UsuarioResponse> {
-                    override fun onFailure(call: Call<UsuarioResponse>, t: Throwable) {
+                .enqueue(object : Callback<Usuario> {
+                    override fun onFailure(call: Call<Usuario>, t: Throwable) {
                         Toast.makeText(
                                 this@CadastroUsuarioActivity,
                                 R.string.genericError,
@@ -35,7 +35,7 @@ class CadastroUsuarioActivity : AppCompatActivity() {
                         ).show()
                     }
 
-                    override fun onResponse(call: Call<UsuarioResponse>, response: Response<UsuarioResponse>) {
+                    override fun onResponse(call: Call<Usuario>, response: Response<Usuario>) {
                         if (response.code() in 200..299) {
                             goToLogin()
                         } else {
