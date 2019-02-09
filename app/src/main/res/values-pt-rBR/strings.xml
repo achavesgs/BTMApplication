@@ -25,4 +25,6 @@
     <string name="signupError">Por favor, verifique os dados e tente novamente.</string>
     <string name="emailNotVerifiedError">Por favor, confirme seu email.</string>
     <string name="appbar_scrolling_view_behavior">AppBarLayout.ScrollingViewBehavior</string>
+    <string name="deleteSuccess">Registro apagado com sucesso.</string>
+    <string name="deleteError">Erro ao apagar.</string>
 </resources>

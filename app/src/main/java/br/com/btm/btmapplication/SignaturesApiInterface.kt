@@ -1,10 +1,7 @@
 package br.com.btm.btmapplication
 
 import retrofit2.Call
-import retrofit2.http.GET
-import retrofit2.http.POST
-import retrofit2.http.Path
-import retrofit2.http.Query
+import retrofit2.http.*
 
 interface SignaturesApiInterface {
     @POST("/api/signin")
@@ -15,4 +12,7 @@ interface SignaturesApiInterface {
 
     @GET("/api/my-signatures/{userId}")
     fun mySignatures(@Path("userId") userId: String): Call<List<Signature>>
+
+    @DELETE("/api/my-signatures/{userId}/{itemId}")
+    fun deleteSignature(@Query("userId") userId: String, @Path("itemId") itemId: String): Call<String>
 }

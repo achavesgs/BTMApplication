@@ -12,19 +12,18 @@ class MainActivity : AppCompatActivity() {
     private var adapter: SignatureAdapter? = null
     private var signatures: List<Signature> = listOf()
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main_view_model)
         mostrarDados()
+        val usuario = this.intent.getStringExtra("usuario")
         rvSignatures.layoutManager = LinearLayoutManager(this)
-        adapter = SignatureAdapter(signatures!!)
+        adapter = SignatureAdapter(signatures!!, usuario, this)
         rvSignatures.adapter = adapter
     }
 
     private fun mostrarDados() {
-        val usuario = intent.getStringExtra("usuario")
-
+        val usuario = this.intent.getStringExtra("usuario")
         var model = ViewModelProviders.of(this)
             .get(SignatureListViewModel::class.java)
             .getSignatures(usuario)

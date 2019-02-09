@@ -21,4 +21,9 @@
         <item name="contentPaddingRight">16dp</item>
         <item name="cardUseCompatPadding">true</item>
     </style>
+    <style name="FullScreen" parent="AppTheme">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+    </style>
 </resources>

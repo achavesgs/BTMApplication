@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.ProgressBar
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_login.*
 import retrofit2.Call
@@ -26,6 +27,7 @@ class LoginActivity : AppCompatActivity() {
         }
 
         btLogar.setOnClickListener {
+
             val retrofit = Retrofit.Builder()
                     .baseUrl("https://signatures-api.herokuapp.com")
                     .addConverterFactory(GsonConverterFactory.create())
@@ -47,15 +49,12 @@ class LoginActivity : AppCompatActivity() {
                         if (response?.code() in 200..299) {
                             val usuario = response?.body()
 //                            if (usuario!!.emailVerified) {
-                              goToMain(usuario!!.userId)
-
                                 if (cbManterConectado.isChecked) {
                                     val editor = sharedPreferences.edit()
-                                    editor.putBoolean("MANTER_CONECTADO", cbManterConectado.isChecked)
-                                    editor.putString("USUARIO", inputNome.text.toString())
-                                    editor.putString("PASSWORD", inputPassword.text.toString())
+                                    editor.putString("USER_ID", usuario!!.userId)
                                     editor.apply()
                                 }
+                                goToMain(usuario!!.userId)
 //                            } else {
 //                                Toast.makeText(
 //                                        this@LoginActivity,

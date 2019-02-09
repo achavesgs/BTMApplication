@@ -68,27 +68,26 @@
         android:id="@+id/btLogar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="8dp"
         android:background="@color/colorAccent"
         android:text="@string/btnLogin"
         android:textColor="#FFF"
         app:layout_constraintEnd_toEndOf="@+id/inputPassword"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/inputPassword"
-        app:layout_constraintTop_toBottomOf="@+id/inputPassword" />
+        app:layout_constraintTop_toBottomOf="@+id/cbManterConectado" />
 
     <TextView
         android:id="@+id/btSubscribe"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="25dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginTop="36dp"
         android:text="@string/txtSubscUser"
         android:textColor="@color/colorPrimaryDark"
         android:textColorLink="@color/colorDiver"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintEnd_toEndOf="@+id/btLogar"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btLogar" />
 
@@ -97,12 +96,11 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="14dp"
         android:layout_marginEnd="8dp"
         android:text="@string/ckb_conectado"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btSubscribe" />
-
+        app:layout_constraintTop_toBottomOf="@+id/inputPassword" />
 </android.support.constraint.ConstraintLayout>

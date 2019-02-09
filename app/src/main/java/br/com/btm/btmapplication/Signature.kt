@@ -6,5 +6,6 @@ import java.util.*
 data class Signature(
         @SerializedName("data") val data: String,
         @SerializedName("servico") val servico: String,
-        @SerializedName("tempo") val tempo: String
+        @SerializedName("tempo") val tempo: String,
+        @SerializedName("key") val key: String
 )

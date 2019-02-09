@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Bring To Me</string>
+    <string name="app_name">NO Premium</string>
     <string name="btnLogin">Login</string>
     <string name="txtUser">Email</string>
     <string name="hint_user">Email</string>
@@ -24,4 +24,6 @@
     <string name="signupError">Please, verify your input information and try again.</string>
     <string name="emailNotVerifiedError">Please verify your email address.</string>
     <string name="appbar_scrolling_view_behavior">AppBarLayout.ScrollingViewBehavior</string>
+    <string name="deleteSuccess">The item was successfully deleted.</string>
+    <string name="deleteError">Sorry, I could not delete this item.</string>
 </resources>
