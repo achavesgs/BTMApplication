@@ -1,92 +1,104 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+<android.support.constraint.ConstraintLayout android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CadastroAssinaturaActivity">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <LinearLayout
+
+    <TextView
+        android:id="@+id/serviceLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="@string/txt_service"
+        android:textColor="@color/colorText"
+        android:typeface="normal"
+        app:layout_constraintBottom_toTopOf="@+id/inputService"
+        app:layout_constraintStart_toStartOf="@+id/inputService" />
+
+
+    <EditText
+        android:id="@+id/inputService"
+        android:layout_width="347dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="8dp"
+        android:layout_weight="1"
+        android:ems="10"
+        android:hint="@string/hint_service"
+        android:inputType="text"
+        android:textColor="@color/colorSecondaryText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.523"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/dateLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="@string/txt_date"
+        android:textColor="@color/colorText"
+        android:typeface="normal"
+        app:layout_constraintBottom_toTopOf="@+id/inputDate"
+        app:layout_constraintStart_toStartOf="@+id/inputDate" />
+
+    <EditText
+        android:id="@+id/inputDate"
+        android:layout_width="347dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:ems="10"
+        android:hint="@string/hint_date"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="@+id/inputService"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/inputService"
+        app:layout_constraintTop_toBottomOf="@+id/inputService" />
+
+    <TextView
+        android:id="@+id/timeLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="@string/txt_time"
+        android:textColor="@color/colorText"
+        android:typeface="normal"
+        app:layout_constraintBottom_toTopOf="@+id/inputTime"
+        app:layout_constraintStart_toStartOf="@+id/inputTime" />
+
+    <EditText
+        android:id="@+id/inputTime"
+        android:layout_width="348dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:ems="10"
+        android:hint="@string/hint_time"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="@+id/inputDate"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/inputDate"
+        app:layout_constraintTop_toBottomOf="@+id/inputDate" />
+
+    <Button
+        android:id="@+id/btSaveSignature"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        tools:context=".CadastroAssinaturaActivity">
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="8dp"
+        android:background="@color/colorAccent"
+        android:text="@string/bt_salvar_assinatura"
+        android:textColor="@color/colorDiver"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/inputTime"
+        app:layout_constraintVertical_bias="0.274" />
 
 
-        <RadioGroup
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-
-            <TextView
-                android:id="@+id/idSite"
-                android:layout_marginTop="10dp"
-                android:layout_marginRight="15dip"
-                android:typeface="normal"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/hint_site"
-                android:textColor="@color/colorText"/>
-
-
-            <EditText
-                    android:id="@+id/etSite"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:hint="@string/hint_site"
-                    android:inputType="text"
-                    android:textColor="@color/colorSecondaryText"/>
-
-            <TextView
-                android:id="@+id/idDataSign"
-                android:layout_marginTop="10dp"
-                android:layout_marginRight="15dip"
-                android:typeface="normal"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/txtDataSign"
-                android:textColor="@color/colorText"/>
-
-            <EditText
-                android:id="@+id/etDataSign"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="@string/hint_data"
-                android:inputType="date" />
-
-            <TextView
-                android:id="@+id/idDataExp"
-                android:layout_marginTop="10dp"
-                android:layout_marginRight="15dip"
-                android:typeface="normal"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/txtDataExp"
-                android:textColor="@color/colorText"/>
-
-            <EditText
-                android:id="@+id/etDataExp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="@string/hint_data"
-                android:inputType="date" />
-
-        </RadioGroup>
-
-
-        <Button
-            android:id="@+id/btSaveSite"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:background="@color/colorAccent"
-            android:text="@string/bt_salvar_assinatura"
-            android:textColor="@color/colorDiver" />
-
-
-    </LinearLayout>
-</ScrollView>
+</android.support.constraint.ConstraintLayout>

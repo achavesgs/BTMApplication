@@ -8,10 +8,12 @@
     <string name="hint_senha">Informe sua senha</string>
     <string name="botao_login">Conectar</string>
     <string name="botao_cadastrar">Criar uma nova conta</string>
-    <string name="hint_site">Site</string>
-    <string name="txtDataSign">Data da assinatura</string>
-    <string name="txtDataExp">Data de Expiração</string>
-    <string name="hint_data">DD/MM/AAAA</string>
+    <string name="txt_service">Serviço em Trial</string>
+    <string name="txt_time">Tempo até expirar</string>
+    <string name="txt_date">Data de assinatura</string>
+    <string name="hint_date">DD/MM/AAAA</string>
+    <string name="hint_time">Ex.: Em 1 mês</string>
+    <string name="hint_service">Serviço pelo qual você não quer pagar</string>
     <string name="ckb_conectado">Manter Conectado</string>
     <string name="txtSubscUser">Ainda não tem uma conta? Crie agora!</string>
     <string name="bt_salvar_assinatura">Salvar</string>
@@ -27,4 +29,5 @@
     <string name="appbar_scrolling_view_behavior">AppBarLayout.ScrollingViewBehavior</string>
     <string name="deleteSuccess">Registro apagado com sucesso.</string>
     <string name="deleteError">Erro ao apagar.</string>
+    <string name="createError" />
 </resources>

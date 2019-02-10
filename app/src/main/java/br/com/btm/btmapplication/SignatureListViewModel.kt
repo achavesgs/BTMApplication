@@ -14,13 +14,13 @@ import android.arch.lifecycle.ViewModel
 
 class SignatureListViewModel : ViewModel() {
     private var usuarioId: String = "";
-    private val signatures: MutableLiveData<List<Signature>> by lazy {
-        MutableLiveData<List<Signature>>().also {
+    private val signatures: MutableLiveData<MutableList<Signature>> by lazy {
+        MutableLiveData<MutableList<Signature>>().also {
             loadSignatures(usuarioId)
         }
     }
 
-    fun getSignatures(usuario: String): LiveData<List<Signature>> {
+    fun getSignatures(usuario: String): LiveData<MutableList<Signature>> {
         usuarioId = usuario
         return signatures
     }
@@ -34,14 +34,14 @@ class SignatureListViewModel : ViewModel() {
         val service = retrofit.create(SignaturesApiInterface::class.java)
 
         service.mySignatures(usuario)
-                .enqueue(object : Callback<List<Signature>> {
-                    override fun onResponse(call: Call<List<Signature>>, response: Response<List<Signature>>) {
+                .enqueue(object : Callback<MutableList<Signature>> {
+                    override fun onResponse(call: Call<MutableList<Signature>>, response: Response<MutableList<Signature>>) {
                         if (response.isSuccessful) {
                             signatures.setValue(response.body())
                         }
                     }
 
-                    override fun onFailure(call: Call<List<Signature>>, t: Throwable) {
+                    override fun onFailure(call: Call<MutableList<Signature>>, t: Throwable) {
                         signatures.setValue(null)
                     }
                 })

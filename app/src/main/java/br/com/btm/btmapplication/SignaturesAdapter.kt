@@ -9,18 +9,20 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
+import kotlinx.android.synthetic.main.activity_main_view_model.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import kotlin.math.sign
 
-class SignatureAdapter(var signatures: List<Signature>, private val usuario: String, private val context: Context) :
+class SignatureAdapter(var signatures: MutableList<Signature>, var usuario: String, private val context: MainActivity) :
         RecyclerView.Adapter<SignatureAdapter.SignatureViewHolder>() {
     override fun getItemCount(): Int {
         return signatures.size
     }
-    fun setList(signatures: List<Signature>) {
+    fun setList(signatures: MutableList<Signature>) {
         this.signatures = signatures
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType:
@@ -35,11 +37,11 @@ class SignatureAdapter(var signatures: List<Signature>, private val usuario: Str
         holder.tvService.text = signature.servico
         holder.tvDate.text = signature.data
         holder.tvTime.text = signature.tempo
-        holder.btnDelete.setOnClickListener(View.OnClickListener {
+        holder.btnDelete.setOnClickListener {
             val retrofit = Retrofit.Builder()
-                .baseUrl("https://signatures-api.herokuapp.com")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build()
+                    .baseUrl("https://signatures-api.herokuapp.com")
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .build()
 
             val service = retrofit.create(SignaturesApiInterface::class.java)
 
@@ -58,6 +60,8 @@ class SignatureAdapter(var signatures: List<Signature>, private val usuario: Str
                                 R.string.deleteSuccess,
                                 Toast.LENGTH_SHORT
                         ).show()
+                        signatures.removeAt(i)
+                        notifyItemRemoved(i)
                     } else {
                         Toast.makeText(
                                 context,
@@ -67,15 +71,17 @@ class SignatureAdapter(var signatures: List<Signature>, private val usuario: Str
                     }
                 }
             })
-        });
-        holder.btnEdit.setOnClickListener(View.OnClickListener {
+        };
+
+        holder.btnEdit.setOnClickListener {
             val intent = Intent(context, CadastroAssinaturaActivity::class.java)
             intent.putExtra("key", signature.key)
             intent.putExtra("servico", signature.servico)
             intent.putExtra("data", signature.data)
             intent.putExtra("tempo", signature.tempo)
+            intent.putExtra("usuario", usuario)
             context.startActivity(intent)
-        });
+        };
     }
     class SignatureViewHolder(v: View) : RecyclerView.ViewHolder(v) {
         var tvService: TextView = v.findViewById(R.id.tvService)

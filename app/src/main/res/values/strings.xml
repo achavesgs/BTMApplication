@@ -7,10 +7,12 @@
     <string name="hint_senha">Inform your password</string>
     <string name="botao_login">Login</string>
     <string name="botao_cadastrar">Create a New Account</string>
-    <string name="hint_site">Site</string>
-    <string name="txtDataSign">Signature date</string>
-    <string name="txtDataExp">Expiration date</string>
-    <string name="hint_data">DD/MM/YYYY</string>
+    <string name="txt_service">Free Trial Service</string>
+    <string name="txt_time">Free Time</string>
+    <string name="txt_date">Subscription Date</string>
+    <string name="hint_date">DD/MM/AAAA</string>
+    <string name="hint_time">Ex.: 1 month</string>
+    <string name="hint_service">Ex.: Service you wont pay for use</string>
     <string name="ckb_conectado">Keep conected</string>
     <string name="txtSubscUser">Still doesent have an account? Create now!</string>
     <string name="bt_salvar_assinatura">Save</string>
@@ -26,4 +28,5 @@
     <string name="appbar_scrolling_view_behavior">AppBarLayout.ScrollingViewBehavior</string>
     <string name="deleteSuccess">The item was successfully deleted.</string>
     <string name="deleteError">Sorry, I could not delete this item.</string>
+    <string name="createError">Error inserting this subscription</string>
 </resources>
